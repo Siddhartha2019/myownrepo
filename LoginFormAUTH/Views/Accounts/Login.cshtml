@@ -1,0 +1,84 @@
+﻿@model LoginFormAUTH.Models.UserModel
+@{
+    ViewBag.Title = "Login";
+}
+<head>
+<style type="text/css">
+
+    body {
+        position: relative;
+    }
+
+    #divmain {
+        /* position: absolute;
+        left: 29%;
+        top: 133%;
+        right: 50%;
+        bottom: 50%;*/
+        transform: translate(658px,272px);
+        width: 483px;
+        height: 300px;
+        border: 1px solid red;
+        border-radius: 25px;
+        padding: 13px;
+        /*z-index:1;*/
+    }
+
+
+</style>
+</head>
+    <body>
+        <div id="divmain" class="form-horizontal">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+
+
+                <h2 style="text-align:center">Login</h2>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group row">
+                    @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.Label("Password", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.UserPassword, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.UserPassword, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Login" class="btn btn-default" />
+                    </div>
+                </div>
+                <hr />
+
+
+
+            }
+
+            <div>
+                @Html.ActionLink("Click here to Signup", "Signup")
+            </div>
+        </div>
+    </body>
+
+
+    <script type="text/javascript">
+        //window.addEventListener('unload', function (event) {
+        //    document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+        //});
+
+
+      
+
+      
+    
+</script>
+
